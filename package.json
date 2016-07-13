@@ -1,0 +1,16 @@
+{
+  "name": "spindine",
+  "version": "1.0.0",
+  "description": "a simple web app that solves your indecisive dining problems",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gina Zhou",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "path": "^0.12.7",
+    "webpack": "^1.13.1"
+  }
+}
