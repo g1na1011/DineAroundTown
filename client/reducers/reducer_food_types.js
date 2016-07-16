@@ -11,4 +11,4 @@ export default function() {
     {type: 'Thai'},
     {type: 'Vietnamese'}
   ];
-}
+};

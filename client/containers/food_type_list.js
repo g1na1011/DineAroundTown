@@ -1,12 +1,24 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {foodTypeSelected} from '../actions/index';
+import {bindActionCreators} from 'redux';
 
 class FoodTypeList extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onButtonClick = this.onButtonClick.bind(this);
+  }
+
+  onButtonClick(type, location) {
+    this.props.foodTypeSelected(type, this.props.activeLocation);
+  }
+
   renderList() {
     return this.props.foodTypes.map((type) => {
       return (
         <div key={type.type}>
-          <button>
+          <button onClick={() => {this.onButtonClick(type.type)}}>
             {type.type}
           </button>
         </div>
@@ -25,8 +37,13 @@ class FoodTypeList extends Component {
 
 function mapStateToProps(state) {
   return {
-    foodTypes: state.foodTypes
+    foodTypes: state.foodTypes,
+    activeLocation: state.activeLocation
   }
 }
 
-export default connect(mapStateToProps)(FoodTypeList);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({foodTypeSelected: foodTypeSelected}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FoodTypeList);

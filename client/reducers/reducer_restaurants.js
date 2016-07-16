@@ -1,8 +1,8 @@
-export default function() {
-  return [
-    {name: 'xiao loong'},
-    {name: 'kfc'},
-    {name: 'tani\'s kitchen'},
-    {name: 'blue line pizza'}
-  ];
-}
+export default function(state = [], action) {
+  switch(action.type) {
+    case 'FOOD_TYPE_SELECTED':
+      return action.payload;
+  };
+
+  return state;
+};

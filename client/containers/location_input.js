@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {selectLocation} from '../actions/index';
 
-export default class LocationInput extends Component {
+class LocationInput extends Component {
   constructor(props) {
     super(props);
 
@@ -15,6 +18,9 @@ export default class LocationInput extends Component {
 
   onFormSubmit(event) {
     event.preventDefault();
+
+    this.props.selectLocation({location: this.state.location});
+    this.setState({location: ''});
   }
 
   render() {
@@ -37,3 +43,9 @@ export default class LocationInput extends Component {
     );
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({selectLocation}, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(LocationInput);

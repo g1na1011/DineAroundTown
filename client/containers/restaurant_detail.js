@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-
 class RestaurantDetail extends Component {
   render() {
     if (!this.props.restaurant) {
