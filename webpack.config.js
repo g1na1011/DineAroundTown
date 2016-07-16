@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const BUILD_DIR = path.resolve(__dirname, 'dist');
 const APP_DIR = path.resolve(__dirname, 'client');
@@ -15,15 +16,21 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'SpinDine', 
-      template: 'index.html',
+      template: 'client/index.html',
       filename: 'index.html'
-    })
+    }),
+    new ExtractTextPlugin('style.css')
   ],
   module: {
     loaders: [
       {
         test: /\.js$/,
-        loaders: ['babel'],
+        loader: 'babel',
+        include: APP_DIR
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
         include: APP_DIR
       }
     ]
