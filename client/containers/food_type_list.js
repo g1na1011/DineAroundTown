@@ -8,6 +8,14 @@ class FoodTypeList extends Component {
     super(props);
 
     this.onButtonClick = this.onButtonClick.bind(this);
+
+    // this.game;
+    // this.wheel;
+    // this.canSpin;
+    // this.slices = 10;
+    // this.foodTypes = ['Chinese', 'American', 'Japanese', 'Indian', 'Italian', 'French', 'Mediterranean','Mexican', 'Vietnamese'];
+    // this.selectedFoodType;
+    // this.selectedFoodTypeText;
   }
 
   onButtonClick(type, location) {

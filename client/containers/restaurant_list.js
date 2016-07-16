@@ -5,22 +5,26 @@ import {bindActionCreators} from 'redux';
 
 class RestaurantList extends Component {
   renderList() {
-    // return this.props.restaurants.map((restaurant) => {
-    //   return (
-    //     <li 
-    //       key={restaurant.name} 
-    //       className="list-group-item"
-    //       onClick={() => this.props.selectRestaurant(restaurant)}>{restaurant.name}
-    //     </li>
-    //   );
-    // });
+    return this.props.restaurants.data.results.map((restaurant) => {
+      return (
+        <li 
+          key={restaurant.name} 
+          className="list-group-item">{restaurant.name}
+        </li>
+      );
+    });
   }
 
   render() {
+    if (this.props.restaurants.length !== 0) {
+      return (
+        <ul className="list-group col-sm-4">
+          {this.renderList()}
+        </ul>
+      );
+    }
     return (
-      <ul className="list-group col-sm-4">
-        {this.renderList()}
-      </ul>
+      <div>Select a location and spin the wheel first.</div>
     );
   }
 };
