@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import ReduxPromise from 'redux-promise';
+import {Router, browserHistory} from 'react-router';
 import createLogger from 'redux-logger';
-
-import App from './components/app';
 import reducers from './reducers';
+import routes from './routes';
 
 require(__dirname + '/css/style.css');
 
@@ -15,6 +15,6 @@ const createStoreWithMiddleware = applyMiddleware(ReduxPromise, logger)(createSt
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
-    <App />
+    <Router history={browserHistory} routes={routes} />
   </Provider>, 
   document.getElementById('app'));
