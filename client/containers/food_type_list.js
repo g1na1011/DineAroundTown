@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {foodTypeSelected} from '../actions/index';
 import {bindActionCreators} from 'redux';
+import {browserHistory} from 'react-router';
+import {foodTypeSelected} from '../actions/index';
 
 class FoodTypeList extends Component {
   constructor(props) {
@@ -19,7 +20,13 @@ class FoodTypeList extends Component {
   }
 
   onButtonClick(type, location) {
-    this.props.foodTypeSelected(type, this.props.activeLocation);
+    return new Promise((resolve, reject) => {
+      this.props.foodTypeSelected(type, this.props.activeLocation);
+      resolve();
+    })
+    .then(() => {
+      browserHistory.push('/restaurants');
+    });
   }
 
   renderList() {

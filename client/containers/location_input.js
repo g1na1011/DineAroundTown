@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import {browserHistory} from 'react-router';
 import {selectLocation} from '../actions/index';
 
 class LocationInput extends Component {
@@ -21,6 +22,7 @@ class LocationInput extends Component {
 
     this.props.selectLocation({location: this.state.location});
     this.setState({location: ''});
+    browserHistory.push('/type');
   }
 
   render() {

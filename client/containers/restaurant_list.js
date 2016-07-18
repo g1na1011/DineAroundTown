@@ -24,7 +24,7 @@ class RestaurantList extends Component {
       );
     }
     return (
-      <div>Select a location and spin the wheel first.</div>
+      <div>Loading...</div>
     );
   }
 };
