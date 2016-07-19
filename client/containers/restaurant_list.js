@@ -2,17 +2,22 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {browserHistory} from 'react-router';
-import {selectRestaurant} from '../actions/index';
+import {restaurantSelected} from '../actions/index';
 
 class RestaurantList extends Component {
   constructor(props) {
     super(props);
 
     this.goHome = this.goHome.bind(this);
+    this.showRestDetail = this.showRestDetail.bind(this);
   }
 
   goHome() {
     browserHistory.push('/');
+  }
+
+  showRestDetail(placeId) {
+    this.props.restaurantSelected(placeId);
   }
 
   renderList() {
@@ -20,7 +25,8 @@ class RestaurantList extends Component {
       return (
         <li 
           key={restaurant.name} 
-          className="list-group-item">{restaurant.name}
+          className="list-group-item"
+          onClick={() => {this.showRestDetail(restaurant.place_id)}}>{restaurant.name}
         </li>
       );
     });
@@ -50,7 +56,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({selectRestaurant: selectRestaurant}, dispatch);
+  return bindActionCreators({restaurantSelected: restaurantSelected}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RestaurantList);

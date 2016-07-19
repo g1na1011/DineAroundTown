@@ -27,9 +27,10 @@ class LocationInput extends Component {
 
   render() {
     return (
-      <div className="row">
+      <div id="cityInput" className="row">
         <div className="col-lg-6">
-          <form className="input-group" onSubmit={this.onFormSubmit}>
+          <h1 id="mainHeader">Please tell us your city...</h1>
+          <form id="cityInputForm" className="input-group" onSubmit={this.onFormSubmit}>
             <input 
               type="text" 
               className="form-control"
@@ -37,7 +38,7 @@ class LocationInput extends Component {
               onChange={this.onInputChange}
               placeholder="Enter your location" />
             <span className="input-group-btn">
-              <button className="btn btn-secondary" type="submit">Submit!</button>
+              <button className="btn btn-secondary" type="submit">Submit</button>
             </span>
           </form>
         </div>

@@ -19,6 +19,15 @@ app.post('/fetch_rest', (req, res) => {
     });
 });
 
+app.post('/fetch_details', (req, res) => {
+  const url = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${req.body.placeId}&key=${API_KEY}`;
+  
+  axios.get(url)
+    .then((response) => {
+      res.send(response.data);
+    });
+});
+
 app.use(function(req, res) {
   res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
