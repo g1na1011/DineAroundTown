@@ -1,9 +1,20 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {selectRestaurant} from '../actions/index';
 import {bindActionCreators} from 'redux';
+import {browserHistory} from 'react-router';
+import {selectRestaurant} from '../actions/index';
 
 class RestaurantList extends Component {
+  constructor(props) {
+    super(props);
+
+    this.goHome = this.goHome.bind(this);
+  }
+
+  goHome() {
+    browserHistory.push('/');
+  }
+
   renderList() {
     return this.props.restaurants.data.results.map((restaurant) => {
       return (
@@ -18,9 +29,12 @@ class RestaurantList extends Component {
   render() {
     if (this.props.restaurants.length !== 0) {
       return (
-        <ul className="list-group col-sm-4">
-          {this.renderList()}
-        </ul>
+        <div>
+          <ul className="list-group col-sm-4">
+            {this.renderList()}
+          </ul>
+          <button onClick={() => {this.goHome()}}>Restart</button>
+        </div>
       );
     }
     return (
