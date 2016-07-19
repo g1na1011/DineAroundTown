@@ -8,7 +8,8 @@ class FoodTypeList extends Component {
   constructor(props) {
     super(props);
 
-    this.onButtonClick = this.onButtonClick.bind(this);
+    this.selectFoodType = this.selectFoodType.bind(this);
+    this.changeLocation = this.changeLocation.bind(this);
 
     // this.game;
     // this.wheel;
@@ -19,7 +20,11 @@ class FoodTypeList extends Component {
     // this.selectedFoodTypeText;
   }
 
-  onButtonClick(type, location) {
+  changeLocation() {
+    browserHistory.push('/');
+  }
+
+  selectFoodType(type, location) {
     return new Promise((resolve, reject) => {
       this.props.foodTypeSelected(type, this.props.activeLocation);
       resolve();
@@ -33,7 +38,7 @@ class FoodTypeList extends Component {
     return this.props.foodTypes.map((type) => {
       return (
         <div key={type.type}>
-          <button onClick={() => {this.onButtonClick(type.type)}}>
+          <button onClick={() => {this.selectFoodType(type.type)}}>
             {type.type}
           </button>
         </div>
@@ -45,6 +50,7 @@ class FoodTypeList extends Component {
     return (
       <div>
         {this.renderList()}
+        <button onClick={() => {this.changeLocation()}}>Update location</button>
       </div>
     );
   }
