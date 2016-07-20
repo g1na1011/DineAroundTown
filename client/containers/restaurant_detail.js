@@ -10,7 +10,10 @@ class RestaurantDetail extends Component {
       <div>
         <h3>{this.props.restaurant.data.result.name}</h3>
         {this.props.restaurant.data.result.formatted_address}<br/>
-        {this.props.restaurant.data.result.formatted_phone_number}
+        {this.props.restaurant.data.result.formatted_phone_number}<br/><br/>
+        <a id="goToMaps" href={this.props.restaurant.data.result.url} target="_blank">
+          <button type="button" className="btn btn-primary btn-sm">Take me there!</button>
+        </a>
       </div>
     );
   }

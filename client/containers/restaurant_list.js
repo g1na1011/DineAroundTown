@@ -44,7 +44,7 @@ class RestaurantList extends Component {
             <ul className="list-group col-sm-4">
               {this.renderList()}
             </ul>
-            <button onClick={() => {this.goHome()}}>Restart</button>
+            <button onClick={() => {this.goHome()}} type="button" className="btn btn-secondary">Restart</button>
           </div>
           <div>
             <RestaurantDetail />

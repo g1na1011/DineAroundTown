@@ -20,9 +20,13 @@ class LocationInput extends Component {
   onFormSubmit(event) {
     event.preventDefault();
 
-    this.props.selectLocation({location: this.state.location});
-    this.setState({location: ''});
-    browserHistory.push('/type');
+    if (!this.state.location) {
+      alert('Please enter a city!');
+    } else {
+      this.props.selectLocation({location: this.state.location});
+      this.setState({location: ''});
+      browserHistory.push('/type');
+    } 
   }
 
   render() {
