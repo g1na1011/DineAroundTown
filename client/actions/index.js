@@ -5,6 +5,7 @@ export const FOOD_TYPE_SELECTED = 'FOOD_TYPE_SELECTED';
 export const RESTAURANT_SELECTED = 'RESTAURANT_SELECTED';
 export const RESET_RESTAURANTS = 'RESET_RESTAURANTS';
 export const RESET_LOCATION = 'RESET_LOCATION';
+export const RESET_ACTIVE_RESTAURANT = 'RESET_ACTIVE_RESTAURANT';
 
 export function selectLocation(location) {
   return {
@@ -42,6 +43,13 @@ export function resetRestaurants() {
 export function resetLocation() {
   return {
     type: RESET_LOCATION,
+    payload: null
+  }
+}
+
+export function resetActiveRestaurant() {
+  return {
+    type: RESET_ACTIVE_RESTAURANT,
     payload: null
   }
 }

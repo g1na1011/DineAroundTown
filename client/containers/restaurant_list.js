@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {browserHistory} from 'react-router';
-import {restaurantSelected, resetLocation, resetRestaurants} from '../actions/index';
+import {restaurantSelected, resetLocation, resetRestaurants, resetActiveRestaurant} from '../actions/index';
+import RestaurantDetail from './restaurant_detail';
 
 class RestaurantList extends Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class RestaurantList extends Component {
     browserHistory.push('/');
     this.props.resetLocation();
     this.props.resetRestaurants();
+    this.props.resetActiveRestaurant();
   }
 
   showRestDetail(placeId) {
@@ -38,10 +40,15 @@ class RestaurantList extends Component {
     if (this.props.restaurants.length !== 0) {
       return (
         <div>
-          <ul className="list-group col-sm-4">
-            {this.renderList()}
-          </ul>
-          <button onClick={() => {this.goHome()}}>Restart</button>
+          <div>
+            <ul className="list-group col-sm-4">
+              {this.renderList()}
+            </ul>
+            <button onClick={() => {this.goHome()}}>Restart</button>
+          </div>
+          <div>
+            <RestaurantDetail />
+          </div>
         </div>
       );
     }
@@ -61,7 +68,8 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     restaurantSelected: restaurantSelected,
     resetLocation: resetLocation,
-    resetRestaurants: resetRestaurants
+    resetRestaurants: resetRestaurants,
+    resetActiveRestaurant: resetActiveRestaurant
   }, dispatch);
 }
 

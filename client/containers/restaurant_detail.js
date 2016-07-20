@@ -8,8 +8,9 @@ class RestaurantDetail extends Component {
     } 
     return (
       <div>
-        <h3>Details for:</h3>
-        <div>{this.props.restaurant.name}</div>
+        <h3>{this.props.restaurant.data.result.name}</h3>
+        {this.props.restaurant.data.result.formatted_address}<br/>
+        {this.props.restaurant.data.result.formatted_phone_number}
       </div>
     );
   }

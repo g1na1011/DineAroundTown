@@ -10,14 +10,6 @@ class FoodTypeList extends Component {
 
     this.selectFoodType = this.selectFoodType.bind(this);
     this.changeLocation = this.changeLocation.bind(this);
-
-    // this.game;
-    // this.wheel;
-    // this.canSpin;
-    // this.slices = 10;
-    // this.foodTypes = ['Chinese', 'American', 'Japanese', 'Indian', 'Italian', 'French', 'Mediterranean','Mexican', 'Vietnamese'];
-    // this.selectedFoodType;
-    // this.selectedFoodTypeText;
   }
 
   changeLocation() {
