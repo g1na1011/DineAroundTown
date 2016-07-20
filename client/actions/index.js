@@ -1,11 +1,10 @@
 import axios from 'axios';
 
-// const API_KEY = 'AIzaSyDFurjykPrxOxl6PmGBjqJuwy4GcdCsrrs';
-// const API_URL = `https://maps.googleapis.com/maps/api/place/textsearch/json?key=${API_KEY}`;
-
 export const LOCATION_SELECTED = 'LOCATION_SELECTED';
 export const FOOD_TYPE_SELECTED = 'FOOD_TYPE_SELECTED';
 export const RESTAURANT_SELECTED = 'RESTAURANT_SELECTED';
+export const RESET_RESTAURANTS = 'RESET_RESTAURANTS';
+export const RESET_LOCATION = 'RESET_LOCATION';
 
 export function selectLocation(location) {
   return {
@@ -30,5 +29,19 @@ export function restaurantSelected(placeId) {
   return {
     type: RESTAURANT_SELECTED,
     payload: request
+  }
+}
+
+export function resetRestaurants() {
+  return {
+    type: RESET_RESTAURANTS,
+    payload: []
+  }
+}
+
+export function resetLocation() {
+  return {
+    type: RESET_LOCATION,
+    payload: null
   }
 }

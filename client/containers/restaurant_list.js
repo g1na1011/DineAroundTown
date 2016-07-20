@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {browserHistory} from 'react-router';
-import {restaurantSelected} from '../actions/index';
+import {restaurantSelected, resetLocation, resetRestaurants} from '../actions/index';
 
 class RestaurantList extends Component {
   constructor(props) {
@@ -14,6 +14,8 @@ class RestaurantList extends Component {
 
   goHome() {
     browserHistory.push('/');
+    this.props.resetLocation();
+    this.props.resetRestaurants();
   }
 
   showRestDetail(placeId) {
@@ -56,7 +58,11 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({restaurantSelected: restaurantSelected}, dispatch);
+  return bindActionCreators({
+    restaurantSelected: restaurantSelected,
+    resetLocation: resetLocation,
+    resetRestaurants: resetRestaurants
+  }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RestaurantList);
