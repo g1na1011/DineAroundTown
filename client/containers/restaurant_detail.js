@@ -5,7 +5,7 @@ class RestaurantDetail extends Component {
   render() {
     if (!this.props.restaurant) {
       return (
-        <div><h3>Select a restaurant first.</h3></div>
+        <div><h3>Select a restaurant for details.</h3></div>
       )
     } 
     return (

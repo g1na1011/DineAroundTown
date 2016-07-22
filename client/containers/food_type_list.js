@@ -43,7 +43,7 @@ class FoodTypeList extends Component {
       <div id="foodType">
         <h2 id="foodTypeHeader">Select a Food Type:</h2>
         {this.renderList()}
-        <button onClick={() => {this.changeLocation()}}>Change Location</button><br/>
+        <button type="button" className="btn btn-warning" onClick={() => {this.changeLocation()}}>Change Location</button><br/>
       </div>
     );
   }
