@@ -32,6 +32,11 @@ module.exports = {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
         include: APP_DIR
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        loader: 'url-loader?limit=25000',
+        include: APP_DIR  
       }
     ]
   }

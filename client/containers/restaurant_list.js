@@ -39,7 +39,7 @@ class RestaurantList extends Component {
   render() {
     if (this.props.restaurants.length !== 0) {
       return (
-        <div>
+        <div id="restList">
           <div>
             <ul className="list-group col-sm-4">
               {this.renderList()}
@@ -53,7 +53,9 @@ class RestaurantList extends Component {
       );
     }
     return (
-      <div>Loading...</div>
+      <div>
+        <img src={require(__dirname + '/../loading.gif')}/>
+      </div>
     );
   }
 };

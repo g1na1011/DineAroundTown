@@ -29,8 +29,8 @@ class FoodTypeList extends Component {
   renderList() {
     return this.props.foodTypes.map((type) => {
       return (
-        <div key={type.type}>
-          <button onClick={() => {this.selectFoodType(type.type)}}>
+        <div id="singleFoodType" key={type.type}>
+          <button type="button" className="btn btn-primary" onClick={() => {this.selectFoodType(type.type)}}>
             {type.type}
           </button>
         </div>
@@ -38,37 +38,12 @@ class FoodTypeList extends Component {
     });
   }
 
-
-
   render() {
     return (
-      <div>
-        <div>
-          {this.renderList()}
-          <button onClick={() => {this.changeLocation()}}>Change location</button>
-        </div>
-        <div id="wrapper">
-              
-          <div id="wheel">
-              <div id="inner-wheel">
-                  <div className="sec"><span className="fa fa-bell-o"></span></div>
-                  <div className="sec"><span className="fa fa-comment-o"></span></div>
-                  <div className="sec"><span className="fa fa-smile-o"></span></div>
-                  <div className="sec"><span className="fa fa-heart-o"></span></div>
-                  <div className="sec"><span className="fa fa-star-o"></span></div>
-                  <div className="sec"><span className="fa fa-lightbulb-o"></span></div>
-              </div>       
-             
-              <div id="spin">
-                  <div id="inner-spin"></div>
-              </div>
-              
-              <div id="shine"></div>
-          </div>
-          
-          
-          <div id="txt"></div>
-        </div>
+      <div id="foodType">
+        <h2 id="foodTypeHeader">Select a Food Type:</h2>
+        {this.renderList()}
+        <button onClick={() => {this.changeLocation()}}>Change Location</button><br/>
       </div>
     );
   }
