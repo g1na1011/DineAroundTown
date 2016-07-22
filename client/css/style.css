@@ -9,10 +9,8 @@ body {
 }
 
 #cityInput {
-  width: 1100px;
-  height: 250px;
   position: absolute;
-  top:0;
+  top: 40px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -20,7 +18,7 @@ body {
 }
 
 #cityInputForm {
-  width: 500px;
+  width: 400px;
 }
 
 /* ----------------- Food Type Page --------------------- */

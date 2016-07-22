@@ -24,7 +24,6 @@ export function foodTypeSelected(type, location) {
 }
 
 export function restaurantSelected(placeId) {
-  console.log('wassup', placeId);
   const request = axios.post('/fetch_details', {placeId: placeId});
 
   return {
