@@ -1,2 +1,2 @@
-# SpinDine
-a simple web app that solves your indecisive dining problems
+# DineAroundTown
+a simple web app that lets you dine about town
